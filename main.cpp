@@ -5,50 +5,16 @@
 
 using namespace std;
 
+float getNumberInput(const string& prompt);
+char getOperatorInput();
+
+
 int main(){
 
-    char op;
-    float num1, num2;
+    float num1 = getNumberInput("Enter the first number: ");
+    char op = getOperatorInput();
+    float num2 = getNumberInput("Enter the second number: ");
 
-    cout << "Enter the first number: ";
-    while (true){    
-        cin >> num1;
-
-        if (cin.fail()) { //Check if input failed
-            cin.clear(); // Clear error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
-
-            cout << "Invalid input. Please enter a valid float number.\n";
-    }   else {
-        break; //Exit loop if input is valid
-    }}
-
-    cout << "Enter operator: +. -, *, /: ";
-    while (true){
-        cin >> op;
-
-        if (op == '+' || op == '-' || op == '*' || op == '/'){
-            break;
-        } else {
-            cout << "Please enter a valid operator +. -, *, /: ";
-            cin.clear(); // Clear error flags
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discord invalid input
-        }
-    }
-
-    cout << "Enter the second number: ";
-    while (true){    
-        cin >> num2;
-
-        if (cin.fail()) { //Check if input failed
-            cin.clear(); // Clear error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
-
-            cout << "Invalid input. Please enter a valid float number.\n";
-    }   else {
-        break; //Exit loop if input is valid
-        }
-    }
 
     switch (op) {
 
@@ -65,10 +31,48 @@ int main(){
         break;
 
         case '/':
-        cout << num1 << " / " << num2 << " / " << num1 / num2 << '\n';
+        if (num2 != 0){
+            cout << num1 << " / " << num2 << " / " << num1 / num2 << '\n';
+        } else {
+            cout << "Error: Division by zero!\n";
+        }
         break;
     }
 
 
     return 0;
+}
+
+float getNumberInput(const string& prompt){
+    float num;
+    cout << prompt;
+
+    while (true){
+        cin >> num;
+
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a valid number: ";
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear remaining characters
+            return num; 
+        }
+    }
+}
+
+char getOperatorInput(){
+    char op;
+    cout << "Enter operator: +. -, *, /: ";
+    while (true){
+        cin >> op;
+
+        if (op == '+' || op == '-' || op == '*' || op == '/'){
+            break;
+        } else {
+            cout << "Please enter a valid operator +. -, *, /: ";
+            cin.clear(); // Clear error flags
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discord invalid input
+        }
+    }
 }
