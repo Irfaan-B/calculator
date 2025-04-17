@@ -8,7 +8,6 @@ using namespace std;
 float getNumberInput(const string& prompt);
 char getOperatorInput();
 
-
 int main(){
 
     float num1 = getNumberInput("Enter the first number: ");
@@ -75,4 +74,5 @@ char getOperatorInput(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discord invalid input
         }
     }
+    return op;
 }

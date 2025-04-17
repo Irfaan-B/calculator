@@ -1,20 +1,12 @@
-# Project Name
+# Calculator
 
-Brief description of your project.
+A simple calculator able to add, subtract, multiply and divide.
 
 ## Features
 
-* Feature 1
-* Feature 2
-* Feature 3
+* Add
+* Subtract
+* Multiply
+* Divide
 
-## Technologies Used
 
-* C++17
-* Visual Studio Code
-* MinGW/MSVC (mention your compiler)
-* CMake (if used)
-
-## Installation
-
-Instructions for installing and setting up your project:
